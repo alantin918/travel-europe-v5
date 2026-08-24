@@ -109,10 +109,10 @@ section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
 .leg .rt{font-weight:700;font-size:15px}
 .leg .rt i{font-style:normal;color:var(--dim);margin:0 6px}
 .leg .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
-.leg .day{
+.leg .legday{
   text-align:right;font-size:12px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums
 }
-.leg .day b{display:block;font-size:14px;color:var(--text)}
+.leg .legday b{display:block;font-size:14px;color:var(--text)}
 
 /* 時間軸 */
 .tl{position:relative;padding-left:24px}
@@ -133,8 +133,9 @@ section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
 .seg.ice::before{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 12%,transparent)}
 .seg.sco::before{border-color:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 14%,transparent)}
 .seg.home::before{border-color:var(--dim);box-shadow:0 0 0 4px color-mix(in srgb,var(--dim) 12%,transparent)}
-.day{position:relative;margin-bottom:8px;opacity:0;transform:translateY(12px);transition:.5s ease}
-.day.in{opacity:1;transform:none}
+.day{position:relative;margin-bottom:8px;transition:opacity .5s ease,transform .5s ease}
+#tl.anim article.day{opacity:0;transform:translateY(12px)}
+#tl.anim article.day.in{opacity:1;transform:none}
 .day::before{
   content:"";position:absolute;left:-21px;top:20px;width:12px;height:12px;border-radius:50%;
   background:var(--bg);border:2.5px solid var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)
@@ -259,7 +260,7 @@ footer{
   .nav-in{height:54px}
   .brand small{display:none}
   .leg{grid-template-columns:auto 1fr;row-gap:6px}
-  .leg .day{grid-column:2;text-align:left}
+  .leg .legday{grid-column:2;text-align:left}
   .tl{padding-left:18px}
   .tl::before{left:6px}
   .day::before{left:-17px;top:18px}
@@ -336,7 +337,7 @@ footer{
         <div class="rt">台北 TPE <i>➔</i> 倫敦 LHR</div>
         <div class="meta">去程直飛 · 華航 CI81 · 09:15 → 16:55　<b style="color:var(--accent2)">✓ 已確認有飛</b></div>
       </div>
-      <div class="day"><b>11/11（三）</b>Day 1</div>
+      <div class="legday"><b>11/11（三）</b>Day 1</div>
     </div>
     <div class="leg">
       <div class="ico">🧊</div>
@@ -344,7 +345,7 @@ footer{
         <div class="rt">倫敦 <i>➔</i> 冰島 KEF</div>
         <div class="meta">極地轉場 · easyJet <b style="color:var(--accent2)">LGW 格域 14:25 → 約 17:40 抵 KEF　✓ 已定案</b></div>
       </div>
-      <div class="day"><b>11/13（五）</b>Day 3</div>
+      <div class="legday"><b>11/13（五）</b>Day 3</div>
     </div>
     <div class="leg">
       <div class="ico">🪄</div>
@@ -352,7 +353,7 @@ footer{
         <div class="rt">冰島 KEF <i>➔</i> 愛丁堡 EDI</div>
         <div class="meta">魔法轉場 · easyJet 晚班機 · 20:25 → 22:50</div>
       </div>
-      <div class="day"><b>11/17（二）</b>Day 7</div>
+      <div class="legday"><b>11/17（二）</b>Day 7</div>
     </div>
     <div class="leg">
       <div class="ico">🚄</div>
@@ -360,7 +361,7 @@ footer{
         <div class="rt">愛丁堡 <i>➔</i> 倫敦 King's Cross</div>
         <div class="meta">火車南下 · LNER 東海岸幹線 · 約 4.5 小時</div>
       </div>
-      <div class="day"><b>11/19（四）</b>Day 9</div>
+      <div class="legday"><b>11/19（四）</b>Day 9</div>
     </div>
     <div class="leg">
       <div class="ico">🛬</div>
@@ -368,7 +369,7 @@ footer{
         <div class="rt">倫敦 LHR <i>➔</i> 台北 TPE</div>
         <div class="meta">回程直飛 · 華航 CI82 · 21:15 起飛</div>
       </div>
-      <div class="day"><b>11/21（六）</b>Day 11</div>
+      <div class="legday"><b>11/21（六）</b>Day 11</div>
     </div>
   </div>
 </section>
@@ -662,21 +663,26 @@ footer{
   });
 
   /* ===== 行程展開／收合 ===== */
-  var days=[].slice.call(document.querySelectorAll('.day'));
+  /* 只取時間軸內的 article，避免選到大交通區塊同名元素 */
+  var days=[].slice.call(document.querySelectorAll('#tl article.day'));
   /* 展開高度用實際內容高度計算，長內容（如 11/13 機場比較）才不會被裁掉 */
   function setOpen(d,open){
+    if(!d) return;
     var b=d.querySelector('.dbody'), h=d.querySelector('.dhead');
+    if(!b || !h) return;
     if(open) d.classList.add('open'); else d.classList.remove('open');
     h.setAttribute('aria-expanded', open?'true':'false');
     b.style.maxHeight = open ? (b.scrollHeight+24)+'px' : '';
   }
   days.forEach(function(d){
     var h=d.querySelector('.dhead');
+    if(!h) return;
     h.setAttribute('aria-expanded','false');
     h.addEventListener('click',function(){ setOpen(d, !d.classList.contains('open')); });
   });
-  document.getElementById('openAll').addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,true); }); });
-  document.getElementById('closeAll').addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,false); }); });
+  var oa=document.getElementById('openAll'), ca=document.getElementById('closeAll');
+  if(oa) oa.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,true); }); });
+  if(ca) ca.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,false); }); });
   /* 桌機預設展開第一天 */
   if(window.innerWidth>760 && days[0]) setOpen(days[0],true);
   /* 轉向或改變視窗寬度時重算已展開項的高度 */
@@ -688,26 +694,26 @@ footer{
     },120);
   });
 
-  /* ===== 進場動畫 ===== */
-  if('IntersectionObserver' in window){
+  /* ===== 進場動畫（先掛 .anim 才隱藏，JS 若中斷不會整片消失） ===== */
+  var tlEl=document.getElementById('tl');
+  if(tlEl && 'IntersectionObserver' in window){
+    tlEl.classList.add('anim');
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     },{threshold:.12});
     days.forEach(function(d){ io.observe(d); });
-  }else{
-    days.forEach(function(d){ d.classList.add('in'); });
   }
 
   /* ===== 導覽高亮 ＋ 回到頂端 ===== */
   var links=[].slice.call(document.querySelectorAll('.nav-links a'));
   var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
   var top=document.getElementById('top');
-  top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  if(top) top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
   function onScroll(){
     var y=window.scrollY+90, cur=-1;
-    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+    secs.forEach(function(sc,i){ if(sc && sc.offsetTop<=y) cur=i; });
     links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
-    top.classList.toggle('show', window.scrollY>500);
+    if(top) top.classList.toggle('show', window.scrollY>500);
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
