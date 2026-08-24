@@ -120,6 +120,19 @@ section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
   content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;
   background:linear-gradient(var(--accent),var(--accent2),transparent)
 }
+.seg{position:relative;display:flex;align-items:center;gap:10px;margin:26px 0 14px;font-size:12.5px}
+.seg:first-child{margin-top:2px}
+.seg b{font-weight:800;letter-spacing:.05em;font-size:13.5px;color:var(--text);white-space:nowrap}
+.seg em{font-style:normal;color:var(--dim);letter-spacing:0;white-space:nowrap;font-size:12px}
+.seg i{flex:1 1 auto;height:1px;background:var(--border);min-width:8px}
+.seg::before{
+  content:"";position:absolute;left:-31px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;border-radius:6px;background:var(--bg);
+  border:2px solid var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent)
+}
+.seg.ice::before{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 12%,transparent)}
+.seg.sco::before{border-color:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 14%,transparent)}
+.seg.home::before{border-color:var(--dim);box-shadow:0 0 0 4px color-mix(in srgb,var(--dim) 12%,transparent)}
 .day{position:relative;margin-bottom:14px;opacity:0;transform:translateY(14px);transition:.55s ease}
 .day.in{opacity:1;transform:none}
 .day::before{
@@ -247,6 +260,9 @@ footer{
   .tl{padding-left:26px}
   .tl::before{left:7px}
   .day::before{left:-24px;top:20px}
+  .seg::before{left:-27px;width:16px;height:16px}
+  .seg{gap:8px;margin:22px 0 12px}
+  .seg em{font-size:11.5px}
   .dnum{width:40px;height:40px}
   .day.open .dbody{max-height:760px}
 }
@@ -357,13 +373,14 @@ footer{
 
 <section id="days" class="wrap">
   <h2 class="h2"><span class="ic">📅</span>每日行程與戰術指導</h2>
-  <p class="lead">點任一天展開細節。藍點＝英國、綠點＝冰島、黃點＝轉場日。</p>
+  <p class="lead">點任一天展開細節。左側軸線依<b>所在城市分段</b>；圓點顏色：藍＝英國、綠＝冰島、黃＝移動轉場日。</p>
   <div class="ctrl">
     <button type="button" id="openAll">全部展開</button>
     <button type="button" id="closeAll">全部收合</button>
   </div>
   <div class="tl" id="tl">
 
+    <div class="seg"><b>🇬🇧 倫敦（前段）</b><em>11/11–11/12 · 2 晚 · 調時差</em><i></i></div>
     <article class="day move">
       <button class="dhead" type="button"><span class="dnum">D1<span>11/11</span></span>
         <span class="dttl"><b>【啟程】飛抵倫敦，無痛調時差</b><em>11/11（三）· 倫敦</em></span><span class="chev">▾</span></button>
@@ -389,6 +406,7 @@ footer{
       </div>
     </article>
 
+    <div class="seg ice"><b>🇮🇸 冰島</b><em>11/13–11/16 · 4 晚 · 藍湖＋AA 3 日團</em><i></i></div>
     <article class="day move">
       <button class="dhead" type="button"><span class="dnum">D3<span>11/13</span></span>
         <span class="dttl"><b>【極地開局】飛往冰島</b><em>11/13（五）· 倫敦 → 雷克雅維克</em></span><span class="chev">▾</span></button>
@@ -459,6 +477,7 @@ footer{
       </div>
     </article>
 
+    <div class="seg sco"><b>🏴 愛丁堡</b><em>11/17–11/18 · 2 晚 · 深夜轉場</em><i></i></div>
     <article class="day move">
       <button class="dhead" type="button"><span class="dnum">D7<span>11/17</span></span>
         <span class="dttl"><b>【冰島慢遊 ➔ 愛丁堡】深夜的魔法轉場</b><em>11/17（二）· 雷克雅維克 → 愛丁堡</em></span><span class="chev">▾</span></button>
@@ -486,6 +505,7 @@ footer{
       </div>
     </article>
 
+    <div class="seg"><b>🇬🇧 倫敦（後段）</b><em>11/19–11/21 · 2 晚＋夜機 · 聖誕季</em><i></i></div>
     <article class="day move">
       <button class="dhead" type="button"><span class="dnum">D9<span>11/19</span></span>
         <span class="dttl"><b>【國鐵南下】重返倫敦</b><em>11/19（四）· 愛丁堡 → 倫敦</em></span><span class="chev">▾</span></button>
@@ -524,6 +544,7 @@ footer{
       </div>
     </article>
 
+    <div class="seg home"><b>🇹🇼 返抵台灣</b><em>11/22 · 傍晚落地桃園</em><i></i></div>
     <article class="day">
       <button class="dhead" type="button"><span class="dnum">D12<span>11/22</span></span>
         <span class="dttl"><b>抵達台灣</b><em>11/22（日）· 台北</em></span><span class="chev">▾</span></button>
