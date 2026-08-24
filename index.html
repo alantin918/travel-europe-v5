@@ -203,6 +203,31 @@ section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
 .opt p{margin:0 0 7px;font-size:13px;color:var(--muted);line-height:1.68}
 .opt p:last-child{margin:0}
 .opt .land{color:var(--text);font-weight:600}
+.prep{display:grid;gap:11px}
+.pi{
+  display:grid;grid-template-columns:auto 1fr;gap:13px;background:var(--card);border:1px solid var(--border);
+  border-left:3px solid var(--dim);border-radius:14px;padding:14px 17px
+}
+.pi.now{border-left-color:var(--hot)}
+.pi.soon{border-left-color:var(--warn)}
+.pi.later{border-left-color:var(--accent)}
+.pi .k{font-size:19px}
+.pi b{display:block;font-size:14.5px;margin-bottom:3px}
+.pi p{margin:0;font-size:13.5px;color:var(--muted)}
+.pi .lv{
+  display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:2px 8px;
+  border-radius:6px;margin-left:8px;vertical-align:2px
+}
+.pi.now .lv{background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
+.pi.soon .lv{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
+.pi.later .lv{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:16px;border-radius:14px;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:13.5px;background:var(--card)}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;color:var(--dim);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td b{color:var(--text)}
+td{color:var(--muted)}
 footer{
   border-top:1px solid var(--border);margin-top:30px;padding:28px 0 46px;
   color:var(--dim);font-size:12.5px;text-align:center
@@ -247,6 +272,7 @@ footer{
       <a href="#trans">大交通</a>
       <a href="#days">每日行程</a>
       <a href="#stay">住宿</a>
+      <a href="#prep">行前必辦</a>
       <a href="#todo">待確認</a>
     </div>
     <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
@@ -389,6 +415,8 @@ footer{
         </div>
         <ul>
           <li>⚠️ 藍湖 11 月營業 <b>08:00–22:00</b>、<b>最後入場 21:30</b>、須<b>事先預約時段</b>，不接受現場購票。</li>
+          <li>🧳 藍湖現場有<b>行李寄放</b>（付費），28 吋行李可寄 —— 藍湖就在 KEF 到市區的路上，帶著行李直接去是對的順序。</li>
+          <li>🚐 <b>KEF → 藍湖 → 雷克雅維克</b>的接送要一起預約（Blue Lagoon Transfer／Flybus），別到現場才找車。</li>
         </ul>
         <div class="stay">🏨 雷克雅維克市區</div>
       </div>
@@ -424,7 +452,8 @@ footer{
       <div class="dbody">
         <ul>
           <li><b>羽毛峽谷</b> ➔ <b>雷尼斯黑沙灘</b> ➔ <b>斯科加瀑布</b>。</li>
-          <li>晚上 <b>19:00</b> 左右回到雷克雅維克市區，領回大行李、入住飯店。</li>
+          <li>回到雷克雅維克的時間是 <b>16:00～19:00 之間</b>（AA 官方說法，依天氣路況而定），領回大行李、入住飯店。</li>
+          <li>💡 這兩晚（11/13、11/16）建議<b>訂同一間飯店</b>，出團前可把用不到的行李先寄放在飯店。</li>
         </ul>
         <div class="stay">🏨 雷克雅維克市區</div>
       </div>
@@ -435,9 +464,10 @@ footer{
         <span class="dttl"><b>【冰島慢遊 ➔ 愛丁堡】深夜的魔法轉場</b><em>11/17（二）· 雷克雅維克 → 愛丁堡</em></span><span class="chev">▾</span></button>
       <div class="dbody">
         <ul>
-          <li><b>白天</b>：睡到自然醒，市區買伴手禮、逛<b>哈爾格林姆教堂</b>、吃羊肉熱狗堡。</li>
-          <li><b>傍晚</b>：搭 <b>Flybus</b> 前往 KEF 機場。</li>
-          <li><b>晚上</b>：20:25 起飛，<b>22:50 抵達愛丁堡</b>。</li>
+          <li><b>白天</b>：睡到自然醒，市區買伴手禮、逛<b>哈爾格林姆教堂</b>、吃羊肉熱狗堡。冰島 11 月中日照僅 10:00–16:00，<b>能逛的其實就 6 小時</b>。</li>
+          <li><b>傍晚 17:30 前</b>：搭 Flybus 前往 KEF（車程 45～50 分，國際線建議提前 2 小時）—— 慢遊實際到 17:00 為止。</li>
+          <li><b>晚上</b>：20:25 起飛，飛行 2 小時 35 分，<b>22:45 抵達愛丁堡</b>。</li>
+          <li>⚠️ 落地已近午夜：<b>愛丁堡電車末班約 23:00 前後</b>，出關提行李後很可能趕不上，直接搭計程車進市區（約 20 分、£25–30）最保險。</li>
         </ul>
         <div class="stay">🏨 愛丁堡 Forth House ⚠️ 需確認深夜自助入住</div>
       </div>
@@ -449,7 +479,8 @@ footer{
       <div class="dbody">
         <ul>
           <li><b>愛丁堡城堡</b> ➔ <b>皇家一英里</b> ➔ <b>維多利亞街</b>（斜角巷原型）。</li>
-          <li>晚上逛<b>聖誕市集</b>，喝杯熱紅酒。</li>
+          <li>晚上逛<b>聖誕市集</b>，喝杯熱紅酒。<b>✓ 已查證：愛丁堡聖誕市集 11/14 開幕</b>，11/18 這天正在營業。</li>
+          <li>💡 愛丁堡 11 月中日落約 16:15，<b>愛丁堡城堡建議排上午</b>（冬季 09:30–17:00），下午天黑後逛市集正好。</li>
         </ul>
         <div class="stay">🏨 愛丁堡 Forth House</div>
       </div>
@@ -461,7 +492,7 @@ footer{
       <div class="dbody">
         <ul>
           <li>早上搭 <b>LNER 東海岸幹線</b>（約 4.5 小時）➔ 下午抵達倫敦<b>國王十字車站</b>。</li>
-          <li>晚上直奔<b>攝政街 Regent Street</b> 欣賞天使聖誕燈飾。</li>
+          <li>晚上直奔<b>攝政街 Regent Street</b> 欣賞天使聖誕燈飾。<b>✓ 已查證：2026 年 11/6 點燈</b>，每日約 15:00–16:00 亮起，這天肯定看得到。</li>
         </ul>
         <div class="stay">🏨 倫敦市區</div>
       </div>
@@ -484,7 +515,9 @@ footer{
         <span class="dttl"><b>【滿載而歸】最後巡禮</b><em>11/21（六）· 倫敦 → 台北</em></span><span class="chev">▾</span></button>
       <div class="dbody">
         <ul>
-          <li>白天做最後的市區巡禮與採買。</li>
+          <li>白天做最後的市區巡禮與採買（<b>採買到 17:00 為止</b>）。</li>
+          <li>🧳 這天已退房，<b>行李要先安排寄放</b>：問飯店可否寄放，或用 Stasher／Bounce 等市區寄物服務。</li>
+          <li><b>17:30</b> 出市區前往 LHR（21:15 起飛的長程線建議 19:00 前到機場）。</li>
           <li>晚上 <b>21:15</b> 搭乘華航 CI82 直飛回台。</li>
         </ul>
         <div class="stay none">✈️ 夜宿機上</div>
@@ -496,7 +529,8 @@ footer{
         <span class="dttl"><b>抵達台灣</b><em>11/22（日）· 台北</em></span><span class="chev">▾</span></button>
       <div class="dbody">
         <ul>
-          <li>帶著滿滿回憶與戰利品回到家，<b>隔天準備上班</b>！</li>
+          <li>推算 <b>18:00～19:00 之間抵達桃園</b>（飛行約 13.5 小時、時差 +8），實際時刻請以華航訂位為準。</li>
+          <li>帶著滿滿回憶與戰利品回到家，<b>11/23（一）準備上班</b>！</li>
         </ul>
         <div class="stay">🏠 回到溫暖的家</div>
       </div>
@@ -516,6 +550,41 @@ footer{
   </div>
 </section>
 
+<section id="prep" class="wrap">
+  <h2 class="h2"><span class="ic">🚨</span>行前必辦與訂票時程</h2>
+  <p class="lead">整體檢查後補上的缺口。最上面那項沒辦，<b>登機門直接被攔下來</b>。</p>
+  <div class="prep">
+    <div class="pi now"><span class="k">🇬🇧</span><div><b>申請英國 ETA 電子旅行憑證<span class="lv">現在就辦</span></b>
+      <p>原計劃書<b>完全沒提到這項</b>。2026/2/25 起，台灣護照免簽入境英國<b>一律須先取得 ETA</b>，沒有就無法登機。費用 <b>£20</b>、線上或 App 申請、效期 2 年可多次入境 —— 這趟 11/11 進倫敦、11/17 再從冰島飛進愛丁堡，<b>兩次入境同一份 ETA 都涵蓋</b>。換發新護照要重新申請。</p></div></div>
+    <div class="pi now"><span class="k">🚄</span><div><b>訂 11/19 LNER 早鳥票<span class="lv">越拖越貴</span></b>
+      <p>LNER Advance 早鳥約<b>提前 12 週開賣</b>，11/19 的票在 8 月底就陸續開放 —— 也就是<b>現在正是最便宜的時候</b>。同一班車早鳥與當日票價差可達 3～4 倍。愛丁堡→倫敦 King's Cross 車程約 4 小時 20 分。</p></div></div>
+    <div class="pi soon"><span class="k">🧊</span><div><b>藍湖時段 ＋ 接送一起訂<span class="lv">越早越好</span></b>
+      <p>藍湖<b>不接受現場購票</b>，熱門時段會滿。先決定 11/13 的入湯時段，機場（LGW／LTN）就跟著定案。順便一次訂好 KEF→藍湖→市區的接送。</p></div></div>
+    <div class="pi soon"><span class="k">🎒</span><div><b>easyJet 兩段都要加購托運行李<span class="lv">機場買最貴</span></b>
+      <p>easyJet 基本票<b>只含隨身行李</b>，28 吋大行李必須加購托運（線上約 £25–50／段，到機場現場加價更兇）。11/13 倫敦→KEF、11/17 KEF→EDI <b>兩段都要買</b>。若用阿聯酋 Skywards 點數兌換 easyJet（單程 7,500 哩起），行李仍需另購。</p></div></div>
+    <div class="pi soon"><span class="k">🚐</span><div><b>向 Arctic Adventures 確認集合時間與地點<span class="lv">影響前一晚</span></b>
+      <p>計劃書寫「09:00 出發」但這點<b>尚未向 AA 求證</b>；官方只明確寫回程是 16:00～19:00 之間。請確認 11/14 的<b>集合時間、上車地點</b>（市區指定站牌或飯店接送）、以及大行李可否上拖車 —— 這會決定 11/13 藍湖要泡到幾點。</p></div></div>
+    <div class="pi later"><span class="k">🛡️</span><div><b>旅遊保險要含戶外活動<span class="lv">出發前</span></b>
+      <p>行程有<b>冰川徒步、藍冰洞</b>，一般旅平險可能把這類活動列為除外。投保時確認涵蓋範圍，並保留 AA 的行程變更條款（11 月南岸可能因暴風雪或道路封閉調整路線）。</p></div></div>
+    <div class="pi later"><span class="k">🔌</span><div><b>英國和冰島插座不一樣<span class="lv">出發前</span></b>
+      <p>英國是 <b>Type G 三孔方腳</b>、冰島是 <b>Type F 圓孔（歐規）</b> —— 這趟<b>兩種轉接頭都要帶</b>，很容易只帶英規就出門。</p></div></div>
+    <div class="pi later"><span class="k">🌌</span><div><b>極光：計劃書完全沒提，但機會就在手上<span class="lv">可加值</span></b>
+      <p>11 月正是極光季，而<b>11/14、11/15 住冰島南岸鄉村</b>（光害極低）是這趟最好的機會 —— 睡前記得看 <b>vedur.is 極光預報</b>，別早早拉上窗簾。11/13 傍晚泡藍湖時也有機會。想更保險可在雷克雅維克加訂一晚極光團（通常不成功可免費改期）。</p></div></div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>什麼時候</th><th>要訂／要辦什麼</th></tr></thead>
+      <tbody>
+        <tr><td><b>現在（8 月底）</b></td><td><b>英國 ETA</b>、<b>LNER 11/19 早鳥票</b>、11/13 兩段 easyJet 決定機場後開票、藍湖時段</td></tr>
+        <tr><td><b>9 月</b></td><td>AA 3 日團（含藍冰洞，冬季名額搶手）、倫敦與雷克雅維克飯店、愛丁堡 Forth House 深夜入住確認</td></tr>
+        <tr><td><b>10 月</b></td><td>西區音樂劇座位、大英博物館特展（如需預約）、easyJet 托運行李加購、旅遊保險</td></tr>
+        <tr><td><b>出發前 2 週</b></td><td>KEF↔藍湖／市區接送、Flybus（11/17）、eSIM 或漫遊、兩種插座轉接頭、11/21 行李寄放方案</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="todo" class="wrap">
   <h2 class="h2"><span class="ic">⚠️</span>出發前待確認</h2>
   <p class="lead">機票地基已敲定，剩下這幾項會影響當日安排。</p>
@@ -523,11 +592,11 @@ footer{
     <div class="ti done"><span class="k">✅</span><div><b>華航 11/11（三）已確認 —— 行程地基敲定</b>
       <p>CI81 <b>09:15 台北 TPE → 16:55 倫敦 LHR</b>，確定有飛。整趟 11/11–11/22 的骨架就以此為準。</p></div></div>
     <div class="ti"><span class="k">🔑</span><div><b>愛丁堡 Forth House 深夜入住</b>
-      <p>Day 7 班機 22:50 才落地愛丁堡，抵達住處已近午夜。務必事先確認可<b>自助 check-in</b> 或取得密碼鎖／鑰匙盒方式。</p></div></div>
+      <p>11/17 班機 <b>22:45</b> 落地愛丁堡，出關後搭車進市區，抵達住處已近午夜。務必事先確認可<b>自助 check-in</b> 或取得密碼鎖／鑰匙盒方式，並問清楚有沒有最晚入住時限。</p></div></div>
     <div class="ti"><span class="k">🧊</span><div><b>11/13 倫敦出發機場二選一 → 建議 LGW 14:25</b>
       <p>LGW 早 1.5 小時落地，藍湖泡得從容、隔天 11/14 跟 AA 團也睡得飽；LTN 15:55 那班只有「早上多睡、票價較便宜」的好處。<b>決定前先訂藍湖時段</b>，時段一定，機場自然就定了。</p></div></div>
     <div class="ti"><span class="k">✈️</span><div><b>11/17 KEF → 愛丁堡 20:25 那班要確認該日有飛</b>
-      <p>這班牽動愛丁堡兩晚住宿與深夜入住安排。若用阿聯酋 Skywards 點數兌換 easyJet，單程 7,500 哩起。</p></div></div>
+      <p>easyJet 這條 KEF–EDI 航線<b>每週只有 2 班</b>，20:25 → 22:45（飛行 2 小時 35 分）確實是當日最晚一班。務必確認 <b>11/17（二）該週有排這班</b> —— 這班牽動愛丁堡兩晚住宿與深夜入住安排。</p></div></div>
     <div class="ti"><span class="k">🎫</span><div><b>需提早開賣就下訂的項目</b>
       <p>AA 英文 3 日團（含藍冰洞）、LNER 車票（早鳥價差極大）、西區音樂劇座位、藍湖溫泉時段。</p></div></div>
   </div>
@@ -536,7 +605,7 @@ footer{
 
 <footer class="wrap">
   <p>2026 英倫與冰島 12 天大滿貫 · 第五版（倫敦分段與冰島極度放鬆版）<br>
-  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-24 更新：華航 CI81 確認 09:15→16:55、新增 11/13 出發機場比較</p>
+  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-24 更新：華航 CI81 確認 09:15→16:55、新增 11/13 出發機場比較、<b>整體檢查後補上行前必辦 8 項</b></p>
 </footer>
 
 <button id="top" type="button" aria-label="回到頂端">↑</button>
