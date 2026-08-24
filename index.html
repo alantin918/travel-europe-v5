@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="2026 英倫與冰島 12 天大滿貫 · 第五版：倫敦分段與冰島極度放鬆版（11/11–11/22）">
+<title>2026 英倫與冰島 12 天｜第五版行程</title>
+<style>
+/* ===== 主題色票 ===== */
+:root{
+  --bg:#0b1020; --bg2:#101830; --card:rgba(255,255,255,.055); --card-solid:#141d38;
+  --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+  --text:#eef2ff; --muted:#a3b0d4; --dim:#7c89ad;
+  --accent:#6ea8ff; --accent2:#8be9c0; --warn:#ffd166; --hot:#ff8fa3;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --glow:radial-gradient(1200px 600px at 15% -10%, rgba(110,168,255,.22), transparent 60%),
+         radial-gradient(900px 500px at 95% 0%, rgba(139,233,192,.15), transparent 55%);
+}
+html[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#ffffff; --card:rgba(255,255,255,.78); --card-solid:#ffffff;
+  --border:rgba(15,30,70,.12); --border-strong:rgba(15,30,70,.22);
+  --text:#131a2e; --muted:#4a5878; --dim:#6b7794;
+  --accent:#2563eb; --accent2:#0f9b73; --warn:#b06f00; --hot:#c0264a;
+  --shadow:0 14px 38px rgba(20,40,90,.13);
+  --glow:radial-gradient(1100px 560px at 12% -12%, rgba(37,99,235,.13), transparent 60%),
+         radial-gradient(900px 500px at 96% 0%, rgba(15,155,115,.12), transparent 55%);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--text); background:var(--bg); background-image:var(--glow);
+  background-attachment:fixed;
+  font-family:"PingFang TC","Noto Sans TC","Hiragino Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  line-height:1.75; letter-spacing:.01em;
+  transition:background-color .35s ease,color .35s ease;
+}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+a{color:var(--accent);text-decoration:none}
+
+/* ===== 導覽列 ===== */
+.nav{
+  position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--border);
+}
+.nav-in{display:flex;align-items:center;gap:12px;height:58px}
+.brand{font-weight:800;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.08em}
+.nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  padding:7px 12px;border-radius:999px;font-size:13px;color:var(--muted);white-space:nowrap;
+  border:1px solid transparent;transition:.2s
+}
+.nav-links a:hover{color:var(--text);background:var(--card)}
+.nav-links a.on{color:var(--text);border-color:var(--border-strong);background:var(--card)}
+#themeBtn{
+  flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
+  background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
+}
+#themeBtn:hover{border-color:var(--border-strong);transform:translateY(-1px)}
+
+/* ===== Hero ===== */
+.hero{padding:clamp(44px,9vw,92px) 0 clamp(32px,6vw,56px)}
+.ver{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;
+  padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--card);color:var(--accent2);font-weight:700
+}
+h1{font-size:clamp(30px,7vw,58px);line-height:1.18;margin:18px 0 10px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:clamp(14px,2.4vw,17px);max-width:56ch;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:12px;margin-top:30px}
+.stat{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;
+  backdrop-filter:blur(8px);box-shadow:var(--shadow)
+}
+.stat b{display:block;font-size:clamp(20px,4vw,27px);letter-spacing:-.01em}
+.stat span{font-size:12px;color:var(--dim)}
+
+/* ===== 區塊通用 ===== */
+section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
+.h2{display:flex;align-items:center;gap:11px;margin:0 0 6px;font-size:clamp(20px,4vw,29px);letter-spacing:-.01em}
+.h2 .ic{font-size:1.05em}
+.lead{color:var(--muted);margin:0 0 24px;font-size:14.5px}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:18px;padding:clamp(16px,3vw,24px);
+  backdrop-filter:blur(10px);box-shadow:var(--shadow)
+}
+
+/* 戰略核心 */
+.core{border-left:3px solid var(--accent2)}
+.core p{margin:0 0 14px}
+.core p:last-child{margin:0}
+.tag{
+  display:inline-block;padding:3px 10px;margin:3px 6px 3px 0;border-radius:8px;font-size:12.5px;
+  background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);
+  border:1px solid color-mix(in srgb,var(--accent) 32%,transparent);font-weight:600
+}
+
+/* 大交通 */
+.legs{display:grid;gap:12px}
+.leg{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 18px;transition:.2s
+}
+.leg:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.leg .ico{font-size:22px}
+.leg .rt{font-weight:700;font-size:15px}
+.leg .rt i{font-style:normal;color:var(--dim);margin:0 6px}
+.leg .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+.leg .day{
+  text-align:right;font-size:12px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums
+}
+.leg .day b{display:block;font-size:14px;color:var(--text)}
+
+/* 時間軸 */
+.tl{position:relative;padding-left:34px}
+.tl::before{
+  content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--accent),var(--accent2),transparent)
+}
+.day{position:relative;margin-bottom:14px;opacity:0;transform:translateY(14px);transition:.55s ease}
+.day.in{opacity:1;transform:none}
+.day::before{
+  content:"";position:absolute;left:-28px;top:22px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)
+}
+.day.ice::before{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 18%,transparent)}
+.day.move::before{border-color:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 20%,transparent)}
+.dhead{
+  width:100%;display:flex;align-items:center;gap:11px;text-align:left;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 16px;
+  color:var(--text);font-family:inherit;font-size:15px;transition:.2s;backdrop-filter:blur(8px)
+}
+.dhead:hover{border-color:var(--border-strong)}
+.dnum{
+  flex:0 0 auto;display:grid;place-items:center;width:44px;height:44px;border-radius:13px;
+  background:color-mix(in srgb,var(--accent) 15%,transparent);border:1px solid var(--border);
+  font-weight:800;font-size:12px;line-height:1.15;text-align:center
+}
+.dnum span{display:block;font-size:10px;font-weight:600;color:var(--dim)}
+.dttl{flex:1 1 auto;min-width:0}
+.dttl b{display:block;font-size:15.5px;letter-spacing:-.01em}
+.dttl em{font-style:normal;font-size:12.5px;color:var(--muted)}
+.chev{flex:0 0 auto;color:var(--dim);transition:transform .28s;font-size:13px}
+.day.open .chev{transform:rotate(180deg)}
+.dbody{
+  overflow:hidden;max-height:0;transition:max-height .38s ease;
+  margin:0 0 0 8px;border-left:1px dashed var(--border-strong)
+}
+.day.open .dbody{max-height:560px}
+.dbody ul{margin:12px 0 12px;padding:0 8px 0 26px}
+.dbody li{margin:7px 0;font-size:14.2px;color:var(--muted)}
+.dbody li b{color:var(--text);font-weight:600}
+.stay{
+  display:inline-flex;align-items:center;gap:7px;margin:0 0 14px 26px;padding:5px 12px;border-radius:9px;
+  font-size:12.5px;background:color-mix(in srgb,var(--accent2) 14%,transparent);color:var(--accent2);
+  border:1px solid color-mix(in srgb,var(--accent2) 30%,transparent);font-weight:600
+}
+.stay.none{background:color-mix(in srgb,var(--hot) 13%,transparent);color:var(--hot);border-color:color-mix(in srgb,var(--hot) 28%,transparent)}
+.ctrl{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.ctrl button{
+  padding:8px 15px;border-radius:11px;font-size:13px;cursor:pointer;font-family:inherit;
+  background:var(--card);border:1px solid var(--border);color:var(--muted);transition:.2s
+}
+.ctrl button:hover{color:var(--text);border-color:var(--border-strong)}
+
+/* 住宿 */
+.beds{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.bed{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px}
+.bed b{display:block;font-size:15px;margin-bottom:3px}
+.bed .n{font-size:12.5px;color:var(--dim)}
+.bar{height:6px;border-radius:99px;background:var(--border);margin-top:11px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+/* 待確認 */
+.todo{display:grid;gap:11px}
+.ti{
+  display:grid;grid-template-columns:auto 1fr;gap:13px;background:var(--card);
+  border:1px solid var(--border);border-left:3px solid var(--warn);border-radius:14px;padding:14px 17px
+}
+.ti .k{font-size:19px}
+.ti b{display:block;font-size:14.5px;margin-bottom:3px}
+.ti p{margin:0;font-size:13.5px;color:var(--muted)}
+
+footer{
+  border-top:1px solid var(--border);margin-top:30px;padding:28px 0 46px;
+  color:var(--dim);font-size:12.5px;text-align:center
+}
+#top{
+  position:fixed;right:18px;bottom:18px;z-index:60;width:44px;height:44px;border-radius:14px;
+  background:var(--card-solid);border:1px solid var(--border-strong);color:var(--text);cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;font-size:16px
+}
+#top.show{opacity:1;pointer-events:auto}
+
+@media (max-width:600px){
+  .nav-in{height:54px}
+  .brand small{display:none}
+  .leg{grid-template-columns:auto 1fr;row-gap:6px}
+  .leg .day{grid-column:2;text-align:left}
+  .tl{padding-left:26px}
+  .tl::before{left:7px}
+  .day::before{left:-24px;top:20px}
+  .dnum{width:40px;height:40px}
+  .day.open .dbody{max-height:760px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .day{opacity:1;transform:none}
+}
+@media print{
+  .nav,#top,.ctrl,#themeBtn{display:none}
+  body{background:#fff;color:#000}
+  .dbody{max-height:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">🏔️ 英倫 × 冰島<small>2026 / 第五版</small></div>
+    <div class="nav-links">
+      <a href="#core">核心</a>
+      <a href="#trans">大交通</a>
+      <a href="#days">每日行程</a>
+      <a href="#stay">住宿</a>
+      <a href="#todo">待確認</a>
+    </div>
+    <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="ver">◆ 第五版　倫敦分段 × 冰島極度放鬆</span>
+  <h1>2026 <em>英倫與冰島</em><br>12 天大滿貫</h1>
+  <p class="sub">11/11（三）～ 11/22（日）。配合華航早班機與愛丁堡晚班機量身打造：倫敦切兩半，去程先休整調時差，再以絕佳狀態迎戰冰島。</p>
+  <div class="stats">
+    <div class="stat"><b>12</b><span>天／10 晚住宿</span></div>
+    <div class="stat"><b>4</b><span>座城市據點</span></div>
+    <div class="stat"><b>2</b><span>國家（英國・冰島）</span></div>
+    <div class="stat"><b>5</b><span>段核心大交通</span></div>
+  </div>
+</header>
+
+<main>
+<section id="core" class="wrap">
+  <h2 class="h2"><span class="ic">💡</span>戰略核心</h2>
+  <p class="lead">為什麼這一版把倫敦拆成前後兩段？</p>
+  <div class="card core">
+    <p>本版本為配合 <b>華航早班機（11/11 09:15 起飛）</b> 與 <b>愛丁堡晚班機（11/17 20:25）</b> 量身打造。行程採用「<b>倫敦切兩半</b>」戰術：去程先在倫敦休整、把時差調順，再以絕佳狀態迎戰冰島的冰川行程。</p>
+    <p>冰島段採用規模最大、<b>09:00 才出發</b>的 Arctic Adventures（AA）英文 3 日團 —— 早上不必天沒亮就起床，28 吋大行李還可以直接丟上導遊的拖車。</p>
+    <div>
+      <span class="tag">早班機出發</span>
+      <span class="tag">倫敦分段休整</span>
+      <span class="tag">AA 英文 3 日團</span>
+      <span class="tag">深夜魔法轉場</span>
+      <span class="tag">聖誕燈飾季</span>
+    </div>
+  </div>
+</section>
+
+<section id="trans" class="wrap">
+  <h2 class="h2"><span class="ic">✈️</span>核心大交通</h2>
+  <p class="lead">五段骨幹，動一段全盤都要重排。</p>
+  <div class="legs">
+    <div class="leg">
+      <div class="ico">🛫</div>
+      <div>
+        <div class="rt">台北 TPE <i>➔</i> 倫敦 LHR</div>
+        <div class="meta">去程直飛 · 華航 CI81 · 09:15 → 15:30</div>
+      </div>
+      <div class="day"><b>Day 1</b>11/11 三</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🧊</div>
+      <div>
+        <div class="rt">倫敦 <i>➔</i> 冰島 KEF</div>
+        <div class="meta">極地轉場 · easyJet 或冰島航空</div>
+      </div>
+      <div class="day"><b>Day 3</b>11/13 五</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🪄</div>
+      <div>
+        <div class="rt">冰島 KEF <i>➔</i> 愛丁堡 EDI</div>
+        <div class="meta">魔法轉場 · easyJet 晚班機 · 20:25 → 22:50</div>
+      </div>
+      <div class="day"><b>Day 7</b>11/17 二</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🚄</div>
+      <div>
+        <div class="rt">愛丁堡 <i>➔</i> 倫敦 King's Cross</div>
+        <div class="meta">火車南下 · LNER 東海岸幹線 · 約 4.5 小時</div>
+      </div>
+      <div class="day"><b>Day 9</b>11/19 四</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🛬</div>
+      <div>
+        <div class="rt">倫敦 LHR <i>➔</i> 台北 TPE</div>
+        <div class="meta">回程直飛 · 華航 CI82 · 21:15 起飛</div>
+      </div>
+      <div class="day"><b>Day 11</b>11/21 六</div>
+    </div>
+  </div>
+</section>
+
+<section id="days" class="wrap">
+  <h2 class="h2"><span class="ic">📅</span>每日行程與戰術指導</h2>
+  <p class="lead">點任一天展開細節。藍點＝英國、綠點＝冰島、黃點＝轉場日。</p>
+  <div class="ctrl">
+    <button type="button" id="openAll">全部展開</button>
+    <button type="button" id="closeAll">全部收合</button>
+  </div>
+  <div class="tl" id="tl">
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D1<span>11/11</span></span>
+        <span class="dttl"><b>【啟程】飛抵倫敦，無痛調時差</b><em>週三 · 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>早上 <b>09:15</b> 搭乘華航直飛倫敦。</li>
+          <li>下午 <b>15:30</b> 抵達，前往倫敦市區飯店 Check-in。</li>
+          <li>傍晚在飯店附近吃頓好的，<b>晚上 9 點直接入睡</b>，完美切換英國時間。</li>
+        </ul>
+        <div class="stay">🏨 倫敦市區</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D2<span>11/12</span></span>
+        <span class="dttl"><b>【倫敦】英倫初體驗</b><em>週四 · 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>這天不趕路，先在倫敦市區悠哉觀光（<b>大英博物館</b>、<b>西敏寺</b>等）。</li>
+          <li>晚上可以提早去踩點吃個正統下午茶，或逛逛街。</li>
+        </ul>
+        <div class="stay">🏨 倫敦市區</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D3<span>11/13</span></span>
+        <span class="dttl"><b>【極地開局】飛往冰島</b><em>週五 · 倫敦 → 雷克雅維克</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>早上退房，前往機場搭機飛往冰島 <b>KEF</b>。</li>
+          <li>下午直奔<b>藍湖溫泉 Blue Lagoon</b>，在攝氏零度的氣溫下泡火山溫泉。</li>
+        </ul>
+        <div class="stay">🏨 雷克雅維克市區</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D4<span>11/14</span></span>
+        <span class="dttl"><b>【AA 3 日團】Day 1 · 黃金圈</b><em>週六 · 冰島南岸</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>早上把 <b>28 吋大行李</b>丟進導遊的拖車，輕鬆上路！</li>
+          <li>走訪黃金圈三大奇景：<b>辛格韋德利國家公園</b>、<b>間歇泉</b>、<b>黃金瀑布</b>。</li>
+        </ul>
+        <div class="stay">🏨 冰島南岸鄉村飯店</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D5<span>11/15</span></span>
+        <span class="dttl"><b>【AA 3 日團】Day 2 · 冰川極限探險</b><em>週日 · 冰島南岸</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>傑古沙龍冰河湖</b> ➔ <b>鑽石沙灘</b>。</li>
+          <li>穿戴冰爪在<b>瓦特納冰川徒步</b> ➔ 探索夢幻<b>天然藍冰洞</b>（冬季限定）。</li>
+        </ul>
+        <div class="stay">🏨 冰島南岸鄉村飯店</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D6<span>11/16</span></span>
+        <span class="dttl"><b>【AA 3 日團】Day 3 · 史詩瀑布與黑沙灘</b><em>週一 · 返回雷克雅維克</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>羽毛峽谷</b> ➔ <b>雷尼斯黑沙灘</b> ➔ <b>斯科加瀑布</b>。</li>
+          <li>晚上 <b>19:00</b> 左右回到雷克雅維克市區，領回大行李、入住飯店。</li>
+        </ul>
+        <div class="stay">🏨 雷克雅維克市區</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D7<span>11/17</span></span>
+        <span class="dttl"><b>【冰島慢遊 ➔ 愛丁堡】深夜的魔法轉場</b><em>週二 · 雷克雅維克 → 愛丁堡</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>白天</b>：睡到自然醒，市區買伴手禮、逛<b>哈爾格林姆教堂</b>、吃羊肉熱狗堡。</li>
+          <li><b>傍晚</b>：搭 <b>Flybus</b> 前往 KEF 機場。</li>
+          <li><b>晚上</b>：20:25 起飛，<b>22:50 抵達愛丁堡</b>。</li>
+        </ul>
+        <div class="stay">🏨 愛丁堡 Forth House ⚠️ 需確認深夜自助入住</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D8<span>11/18</span></span>
+        <span class="dttl"><b>【愛丁堡】霍格華茲一日遊</b><em>週三 · 愛丁堡</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>愛丁堡城堡</b> ➔ <b>皇家一英里</b> ➔ <b>維多利亞街</b>（斜角巷原型）。</li>
+          <li>晚上逛<b>聖誕市集</b>，喝杯熱紅酒。</li>
+        </ul>
+        <div class="stay">🏨 愛丁堡 Forth House</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D9<span>11/19</span></span>
+        <span class="dttl"><b>【國鐵南下】重返倫敦</b><em>週四 · 愛丁堡 → 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>早上搭 <b>LNER 東海岸幹線</b>（約 4.5 小時）➔ 下午抵達倫敦<b>國王十字車站</b>。</li>
+          <li>晚上直奔<b>攝政街 Regent Street</b> 欣賞天使聖誕燈飾。</li>
+        </ul>
+        <div class="stay">🏨 倫敦市區</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D10<span>11/20</span></span>
+        <span class="dttl"><b>【倫敦】精華血拼與音樂劇</b><em>週五 · 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>波羅市場</b>吃美食 ➔ <b>倫敦塔橋</b> ➔ <b>柯芬園</b>買 Jo Malone。</li>
+          <li>晚上看<b>西區音樂劇</b>（如歌劇魅影）。</li>
+        </ul>
+        <div class="stay">🏨 倫敦市區</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D11<span>11/21</span></span>
+        <span class="dttl"><b>【滿載而歸】最後巡禮</b><em>週六 · 倫敦 → 台北</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>白天做最後的市區巡禮與採買。</li>
+          <li>晚上 <b>21:15</b> 搭乘華航 CI82 直飛回台。</li>
+        </ul>
+        <div class="stay none">✈️ 夜宿機上</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D12<span>11/22</span></span>
+        <span class="dttl"><b>抵達台灣</b><em>週日 · 台北</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>帶著滿滿回憶與戰利品回到家，<b>隔天準備上班</b>！</li>
+        </ul>
+        <div class="stay">🏠 回到溫暖的家</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="stay" class="wrap">
+  <h2 class="h2"><span class="ic">🏨</span>住宿分佈</h2>
+  <p class="lead">共 10 晚落地住宿 ＋ 1 夜紅眼航班。</p>
+  <div class="beds">
+    <div class="bed"><b>倫敦市區</b><span class="n">4 晚 · Day 1–2、Day 9–10</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed"><b>雷克雅維克市區</b><span class="n">2 晚 · Day 3、Day 6</span><div class="bar"><i style="width:50%"></i></div></div>
+    <div class="bed"><b>冰島南岸鄉村</b><span class="n">2 晚 · Day 4–5（AA 團安排）</span><div class="bar"><i style="width:50%"></i></div></div>
+    <div class="bed"><b>愛丁堡 Forth House</b><span class="n">2 晚 · Day 7–8</span><div class="bar"><i style="width:50%"></i></div></div>
+  </div>
+</section>
+
+<section id="todo" class="wrap">
+  <h2 class="h2"><span class="ic">⚠️</span>出發前待確認</h2>
+  <p class="lead">這幾項是行程地基，任何一項變動都要重排整趟。</p>
+  <div class="todo">
+    <div class="ti"><span class="k">✈️</span><div><b>華航 11/11 冬季班表與時刻</b>
+      <p>本頁採計劃書寫的 CI81 09:15→15:30。查證資料另有一版 CI081 為 09:35→16:30，且台北–希斯洛線的<b>冬季（11 月）營運日各來源說法矛盾</b>。請向華航官網／客服確認 11/11（三）確實有飛、以及正確起降時刻。</p></div></div>
+    <div class="ti"><span class="k">🔑</span><div><b>愛丁堡 Forth House 深夜入住</b>
+      <p>Day 7 班機 22:50 才落地愛丁堡，抵達住處已近午夜。務必事先確認可<b>自助 check-in</b> 或取得密碼鎖／鑰匙盒方式。</p></div></div>
+    <div class="ti"><span class="k">🧊</span><div><b>兩段 easyJet 班次與時刻</b>
+      <p>倫敦→KEF（11/13）尚未定班次；KEF→EDI（11/17, 20:25）需確認該日實際有飛。若用阿聯酋 Skywards 點數兌換 easyJet，單程 7,500 哩起。</p></div></div>
+    <div class="ti"><span class="k">🎫</span><div><b>需提早開賣就下訂的項目</b>
+      <p>AA 英文 3 日團（含藍冰洞）、LNER 車票（早鳥價差極大）、西區音樂劇座位、藍湖溫泉時段。</p></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p>2026 英倫與冰島 12 天大滿貫 · 第五版（倫敦分段與冰島極度放鬆版）<br>
+  資料來源：travel_plan_v5.md ｜ 星期標記已對照 2026 年曆驗證</p>
+</footer>
+
+<button id="top" type="button" aria-label="回到頂端">↑</button>
+
+<script>
+(function(){
+  /* ===== 日／夜間模式 ===== */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function apply(t){
+    root.setAttribute('data-theme',t);
+    btn.textContent = t==='dark' ? '🌙' : '☀️';
+    if(meta) meta.setAttribute('content', t==='dark' ? '#0b1020' : '#f5f7fc');
+  }
+  var saved=null;
+  try{ saved=localStorage.getItem('eu-theme'); }catch(e){}
+  if(!saved){
+    saved = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  }
+  apply(saved);
+  btn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+    apply(next);
+    try{ localStorage.setItem('eu-theme',next); }catch(e){}
+  });
+
+  /* ===== 行程展開／收合 ===== */
+  var days=[].slice.call(document.querySelectorAll('.day'));
+  days.forEach(function(d){
+    var h=d.querySelector('.dhead');
+    h.setAttribute('aria-expanded','false');
+    h.addEventListener('click',function(){
+      var open=d.classList.toggle('open');
+      h.setAttribute('aria-expanded', open?'true':'false');
+    });
+  });
+  document.getElementById('openAll').addEventListener('click',function(){
+    days.forEach(function(d){ d.classList.add('open'); d.querySelector('.dhead').setAttribute('aria-expanded','true'); });
+  });
+  document.getElementById('closeAll').addEventListener('click',function(){
+    days.forEach(function(d){ d.classList.remove('open'); d.querySelector('.dhead').setAttribute('aria-expanded','false'); });
+  });
+  /* 桌機預設展開第一天 */
+  if(window.innerWidth>760 && days[0]){ days[0].classList.add('open'); days[0].querySelector('.dhead').setAttribute('aria-expanded','true'); }
+
+  /* ===== 進場動畫 ===== */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    days.forEach(function(d){ io.observe(d); });
+  }else{
+    days.forEach(function(d){ d.classList.add('in'); });
+  }
+
+  /* ===== 導覽高亮 ＋ 回到頂端 ===== */
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var top=document.getElementById('top');
+  top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  function onScroll(){
+    var y=window.scrollY+90, cur=-1;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+    top.classList.toggle('show', window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
