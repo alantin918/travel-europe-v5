@@ -245,6 +245,26 @@ th{font-size:12px;letter-spacing:.06em;color:var(--dim);font-weight:700;white-sp
 tr:last-child td{border-bottom:none}
 td b{color:var(--text)}
 td{color:var(--muted)}
+.dl-hot{background:color-mix(in srgb,var(--hot) 12%,transparent)}
+.dl-hot td{color:var(--text)}
+.tag-x{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;
+  background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
+.tag-k{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;
+  background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2)}
+.tel{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:11px}
+.tel a{
+  display:block;background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:13px 16px;transition:.2s;color:var(--text);text-decoration:none
+}
+.tel a:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.tel b{display:block;font-size:14px;margin-bottom:3px}
+.tel span{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.tel em{display:block;font-style:normal;font-size:12px;color:var(--dim);margin-top:3px}
+.pi .quote{
+  border-left:2px solid var(--border-strong);padding-left:12px;font-size:13px;
+  color:var(--text);background:color-mix(in srgb,var(--card-solid) 40%,transparent);
+  border-radius:0 8px 8px 0;padding:9px 12px
+}
 footer{
   border-top:1px solid var(--border);margin-top:30px;padding:28px 0 46px;
   color:var(--dim);font-size:12.5px;text-align:center
@@ -292,6 +312,9 @@ footer{
       <a href="#days">每日行程</a>
       <a href="#stay">住宿</a>
       <a href="#prep">行前必辦</a>
+      <a href="#deadline">取消期限</a>
+      <a href="#plan-b">備援方案</a>
+      <a href="#tel">聯絡電話</a>
       <a href="#todo">已確認</a>
     </div>
     <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
@@ -557,12 +580,13 @@ footer{
 
 <section id="stay" class="wrap">
   <h2 class="h2"><span class="ic">🏨</span>住宿分佈</h2>
-  <p class="lead">共 10 晚落地住宿 ＋ 1 夜紅眼航班（11/21 機上）。</p>
+  <p class="lead">共 10 晚落地住宿 ＋ 1 夜紅眼航班（11/21 機上）。<b>倫敦後段 2 晚尚未訂。</b></p>
   <div class="beds">
-    <div class="bed"><b>倫敦市區</b><span class="n">4 晚 · 11/11–11/12、11/19–11/20</span><div class="bar"><i style="width:100%"></i></div></div>
-    <div class="bed"><b>雷克雅維克市區</b><span class="n">2 晚 · 11/13、11/16</span><div class="bar"><i style="width:50%"></i></div></div>
-    <div class="bed"><b>冰島南岸鄉村</b><span class="n">2 晚 · 11/14–11/15（AA 團安排）</span><div class="bar"><i style="width:50%"></i></div></div>
-    <div class="bed"><b>愛丁堡 Forth House</b><span class="n">2 晚 · 11/17–11/18</span><div class="bar"><i style="width:50%"></i></div></div>
+    <div class="bed"><b>倫敦前段 · Airbnb <span class="tag-k">已訂</span></b><span class="n">2 晚 · 11/11–11/12<br>63 Chalton Street, NW1 1HY<br>步行 8 分到 St Pancras</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed"><b>雷克雅維克 · ASKA Holt <span class="tag-k">已訂</span></b><span class="n">2 晚 · 11/13、11/16（分兩筆）<br>Skipholt 29A · 自助入住<br>上車點 ALVA Hotel 步行 4 分</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed"><b>冰島南岸 · Adventure Hotel Geirland <span class="tag-k">團費含</span></b><span class="n">2 晚 · 11/14–11/15<br>同一間，含第 2、3 天早餐<br>光害極低 → 極光機會最好</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed"><b>愛丁堡 · Forth House <span class="tag-k">已訂</span></b><span class="n">2 晚 · 11/17–11/18<br>6 Broughton Street Lane, EH1 3LY<br>24 小時櫃檯，無最晚入住時限</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed" style="border-color:color-mix(in srgb,var(--hot) 40%,transparent)"><b>倫敦後段 <span class="tag-x">未訂</span></b><span class="n">2 晚 · 11/19–11/20<br><b>建議 King's Cross 步行 5 分內</b><br>11/19 LNER 抵達要拖 28 吋行李</span><div class="bar"><i style="width:0%"></i></div></div>
   </div>
 </section>
 
@@ -580,11 +604,24 @@ footer{
     <div class="pi soon"><span class="k">🎒</span><div><b>行李用阿聯酋點數一起換 —— 但只能在訂位那一刻加<span class="lv">錯過就要付現</span></b>
       <p>easyJet 基本票<b>只含隨身行李</b>，28 吋大行李必須加購。好消息是<b>阿聯酋 Skywards 兌換時可以用哩程一起換托運行李</b>；但官方條款寫得很明確：<b>加購項目只能在「初次訂位時」一併選入</b>，訂完之後就只能用現金直接向 easyJet 補買（機場現場最貴）。</p>
       <p style="margin-top:7px">所以 11/13 倫敦→KEF、11/17 KEF→EDI <b>兩段開票時就要把行李一起加進去</b>，不要想著之後再說。兌換本身單程 7,500 哩起、動態計價。</p></div></div>
-    <div class="pi later"><span class="k">🚐</span><div><b>向 AA 確認上車地點與行李拖車<span class="lv">出團前</span></b>
-      <p><b>✓ 09:00 出發已由 AA 官網確認。</b>剩下只要問清楚 11/14 的<b>上車地點</b>（市區指定站牌、BSÍ 巴士總站、或飯店接送）與<b>28 吋行李能否上拖車</b>。回程時間官方寫 16:00～19:00 之間，依天氣路況而定。</p></div></div>
-    <div class="pi soon"><span class="k">🛡️</span><div><b>AA 三日團「不含」保險，要自己買<span class="lv">越早買越有用</span></b>
-      <p>已查證 AA 官方條款：<b>團費不含任何旅遊保險</b>，並明文強烈建議自行投保。官方建議的覆蓋門檻是 <b>遣送與緊急救援至少 USD 200,000</b>，並建議一併含<b>個人責任、醫療、行程取消／中斷、行李遺失</b>。</p>
-      <p style="margin-top:7px">行程有<b>冰川徒步與藍冰洞</b>，投保時要確認這類戶外活動沒被列為除外。取消險要在訂團後盡早買才有意義 —— 太晚買就保不到「臨時取消」那段。11 月南岸可能因暴風雪或封路變更路線，AA 保留調整權。</p></div></div>
+    <div class="pi now"><span class="k">🔑</span><div><b>完成 ASKA Holt 兩筆線上 check-in<span class="lv">沒做進不了房</span></b>
+      <p>ASKA Holt 是自助入住，<b>門禁碼在抵達當天 08:00 email 寄出，但前提是已完成線上 check-in</b>。11/13 那天你整天在移動（倫敦→冰島），<b>務必提前做完，而且兩筆訂房各做一次</b>。</p></div></div>
+    <div class="pi now"><span class="k">🏨</span><div><b>訂倫敦後段 11/19–20 住宿<span class="lv">還沒訂</span></b>
+      <p>建議找 <b>King's Cross 車站步行 5 分鐘內</b> —— 11/19 LNER 停 King's Cross，拖 2 個 28 吋行李走出車站就到；11/21 Piccadilly 線直達 LHR；11/20 的柯芬園、波羅市場、西區劇院都在直達範圍。</p></div></div>
+    <div class="pi soon"><span class="k">🚐</span><div><b>AA 團行李與上車點<span class="lv">出團前確認</span></b>
+      <p><b>✓ 09:00 出發、上車點 ALVA Hotel（Brautarholt 22，步行 4 分）已確認。</b>行李額度：<b>每人 1 個 20kg 行李箱（三邊之和 ≤158cm）＋ 1 個小背包</b>，可上導遊拖車。</p>
+      <p style="margin-top:7px">⚠️ <b>出發前拿捲尺量一次</b>（含輪子拉桿、不擴充）—— 28 吋典型約 157cm，剛好在邊緣。超標要付 2,500 ISK 寄放 AA 總部（<b>但寄放的行李三天拿不到</b>）。</p></div></div>
+    <div class="pi soon"><span class="k">🚕</span><div><b>註冊 Hreyfill App 並綁卡<span class="lv">在台灣先辦</span></b>
+      <p>冰島<b>沒有 Uber</b>，藍湖也不會有排班計程車。現在就在台灣註冊（用台灣號碼收驗證碼，到冰島後 eSIM 是外國號碼會麻煩），綁<b>外國 Visa／Mastercard 都可用</b>。</p>
+      <p style="margin-top:7px">💡 <b>App 內付款會直接以 ISK 扣款，自動避開 DCC 陷阱</b> —— 比在車上刷卡機付更划算。</p></div></div>
+    <div class="pi soon"><span class="k">🛡️</span><div><b>保險：申根方案 1,494 元，但<u>冰川活動承保要書面確認</u><span class="lv">投保前必問</span></b>
+      <p><b>新安東京申根豪華型</b>（12 天）：身故失能 1,200 萬＋傷害醫療 120 萬＋<b>海外突發疾病 150 萬</b>＋緊急救援 150 萬，<b>1,494 元／人</b>，並隨電子保單附申根憑證。</p>
+      <p style="margin-top:7px">🔴 <b>投保前務必書面確認</b>：行程含「持證導遊帶領、穿冰爪的冰川健行」與「平面步行進入天然冰洞」，<b>兩者都不使用繩索或攀登技術</b> —— 是否在承保範圍內？台灣旅平險常把登山攀岩列為除外，<b>客服口頭說「有保」在理賠時無效，一定要 email 書面</b>。</p>
+      <p style="margin-top:7px">⚠️ 另兩點：緊急救援 150 萬<b>低於 AA 建議的 USD 200,000（約 636 萬）</b>；<b>班機取消導致無法參團的團費損失，台灣旅平險大概不賠</b>（「旅程取消」事由不含天氣）。</p></div></div>
+    <div class="pi later"><span class="k">📄</span><div><b>AA 原始條款（供保險公司判定用）<span class="lv">參考</span></b>
+      <p>把這段<b>官方行程原文</b>直接給保險公司看，最能證明這不是登山攀岩：</p>
+      <p style="margin-top:7px" class="quote">「10 月至次年 4 月：我們將在<b>持證冰川向導</b>的帶領下，走進瓦特納冰川。在冰川徒步中，我們將<b>進入一座天然小冰洞</b>，留出時間探索和拍照。無論是冰洞還是冰川徒步，我們將<b>在冰上探索約 2 小時</b>。本次行程<b>適合能輕鬆在戶外地形上步行約 2 小時的遊客</b>。」</p>
+      <p style="margin-top:7px">關鍵是<b>通篇沒有繩索、冰斧、垂降或攀登技術</b>，體能門檻只是「能步行 2 小時」。另 AA 條款明訂<b>團費不含任何保險</b>，並建議遣送與緊急救援至少 <b>USD 200,000</b>、一併含個人責任／醫療／行程取消中斷／行李遺失。11 月南岸可能因暴風雪或封路變更路線，AA 保留調整權。</p></div></div>
     <div class="pi later"><span class="k">🔌</span><div><b>英國和冰島插座不一樣<span class="lv">出發前</span></b>
       <p>英國是 <b>Type G 三孔方腳</b>、冰島是 <b>Type F 圓孔（歐規）</b> —— 這趟<b>兩種轉接頭都要帶</b>，很容易只帶英規就出門。</p></div></div>
     <div class="pi later"><span class="k">🌌</span><div><b>極光：計劃書完全沒提，但機會就在手上<span class="lv">可加值</span></b>
@@ -604,6 +641,68 @@ footer{
   </div>
 </section>
 
+<section id="deadline" class="wrap">
+  <h2 class="h2"><span class="ic">🗓️</span>取消期限總表</h2>
+  <p class="lead">依時間排序。過了期限就是<b>真的付出去了</b> —— 建議每個都設手機提醒。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>截止時間</th><th>項目</th><th>金額（2 人）</th><th>累積鎖定</th></tr></thead>
+      <tbody>
+        <tr><td><b>10/3</b></td><td>Airbnb 倫敦前段（11/11–13）</td><td>8,637</td><td>8,637</td></tr>
+        <tr><td><b>11/8 23:59</b></td><td>ASKA Holt 兩筆（冰島 2 晚）</td><td>8,966</td><td>17,603</td></tr>
+        <tr><td><b>11/10 23:59</b></td><td>⚠️ 格域機場飯店（11/14）<br><span class="tag-x">多餘訂單，建議現在就取消</span></td><td>—</td><td>—</td></tr>
+        <tr><td><b>11/12 23:59</b></td><td>Forth House（11/17–19）</td><td>9,680</td><td>27,283</td></tr>
+        <tr class="dl-hot"><td><b>11/13 09:00</b> 🔴</td><td><b>AA 三日團</b><br>團在 11/14 09:00 出發，24 小時前可全額退</td><td><b>61,070</b></td><td><b>88,353</b></td></tr>
+        <tr><td><b>11/16 13:00</b></td><td>藍湖門票（11/17 13:00 入場）</td><td>7,042</td><td>95,395</td></tr>
+        <tr><td>出發前隨時</td><td>LNER 11/19 → 可改，£10 手續費＋差價<br>（錯過車才作廢）</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi now"><span class="k">⏰</span><div><b>11/13 早上 07:30 —— 六萬元的一小時<span class="lv">最重要</span></b>
+      <p>AA 團在 <b>11/13 09:00</b> 前取消可全額退 61,070，而你當天的班機 <b>14:25</b> 才起飛。所以一起床就查 easyJet 狀態：</p>
+      <p style="margin-top:7px">✅ 班機正常 → 照計畫走　｜　🔴 <b>已取消或大延誤 → 09:00 前立刻取消 AA 團</b></p></div></div>
+    <div class="pi soon"><span class="k">📌</span><div><b>11/8 —— 出發前最後的整體退出點<span class="lv">總檢查日</span></b>
+      <p>11/8 在你 11/11 出發前 3 天。建議那天一次做完：確認 ASKA Holt 要留、<b>取消格域機場飯店</b>、掃一遍所有訂房平台看有沒有 v1–v4 留下的舊訂單。這樣 11/10 那個期限就不必記了。</p></div></div>
+  </div>
+</section>
+
+<section id="plan-b" class="wrap">
+  <h2 class="h2"><span class="ic">🛟</span>備援方案</h2>
+  <p class="lead">五段大交通裡，<b>只有 11/17 錯過無法當天補救</b>。其他最壞情況都只是多花錢。</p>
+  <div class="prep">
+    <div class="pi now"><span class="k">🔴</span><div><b>11/17 KEF→EDI 沒搭到 → 走格拉斯哥<span class="lv">最佳解</span></b>
+      <p><b>11/18（三）三家航空都沒有 KEF→EDI 直飛</b>，但 <b>Icelandair 每天都飛 KEF→格拉斯哥</b>（2 小時 25 分），而<b>格拉斯哥到愛丁堡火車只要 50 分鐘</b>（每 15 分一班）。</p>
+      <p style="margin-top:7px">11/18 上午飛 → 約 12:30 抵格拉斯哥 → 約 <b>14:00 到愛丁堡</b>，下午還逛得到聖誕市集。<b>只損失 11/17 一晚，LNER 11/19 車票完全不用動。</b></p>
+      <p style="margin-top:7px">次選：11/18 飛倫敦（Icelandair 每週 24 班、BA 每日 1–2 班）再搭 LNER 北上。最差：11/19 Icelandair 直飛 EDI 10:00，但損失整個愛丁堡白天。</p></div></div>
+    <div class="pi soon"><span class="k">✈️</span><div><b>easyJet 錯過班機：2 小時黃金窗口 ＋ £110<span class="lv">記住 2 小時</span></b>
+      <p>原定起飛時間後 <b>2 小時內</b>帶證件到機場 bag drop，付 <b>Rescue Fee £110</b> 可轉搭下一班有位的 easyJet。<b>超過 2 小時列為 no-show，整張票作廢。</b></p>
+      <p style="margin-top:7px">⚠️ 但 KEF–EDI 每週僅 2 班 —— 這條線的「下一班」可能是幾天後，所以<b>直接自費買 11/18 格拉斯哥更實際</b>。</p></div></div>
+    <div class="pi soon"><span class="k">🛡️</span><div><b>航空公司取消 → EU261 要求他們免費改班<span class="lv">你的權利</span></b>
+      <p>從冰島／英國起飛適用 <b>EU261</b>：航空公司<b>必須免費改到最早可行班次</b>，等待期間的餐食住宿也由他們負擔。天氣屬「特殊情況」→ 拿不到現金補償，但<b>改班與照顧義務不會因天氣免除</b>。</p>
+      <p style="margin-top:7px">⚠️ 廉航常只肯改自己的班機 —— <b>明確要求改搭其他航空</b>（EU261 的「最早可行」不限同一家），拒絕的話留單據自購後申訴。</p></div></div>
+    <div class="pi later"><span class="k">🚄</span><div><b>LNER：出發前可改，錯過就作廢<span class="lv">£10</span></b>
+      <p><b>出發前</b>改日期時間只收 <b>£10 手續費 ＋ 差價</b>。<b>錯過車</b>則票直接失效，要重買當日票（約 £150–200，是早鳥的 3–4 倍）。因轉乘延誤而錯過可搭下一班。</p></div></div>
+    <div class="pi later"><span class="k">❌</span><div><b>保險不賠「自己遲到」<span class="lv">認知</span></b>
+      <p>航空公司取消或延誤 4 小時以上 → 賠。<b>自己睡過頭、算錯時間、堵車 → 完全不賠。</b>那 £110、重買的車票、浪費的飯店全部自己吸收。所以緩衝時間要自己守住。</p></div></div>
+  </div>
+</section>
+
+<section id="tel" class="wrap">
+  <h2 class="h2"><span class="ic">📞</span>聯絡電話</h2>
+  <p class="lead">手機上可直接點擊撥號。出發前建議截圖存一份離線。</p>
+  <div class="tel">
+    <a href="tel:+886224129000"><b>華航 客服</b><span>02-412-9000</span><em>改票、哩程升等｜週一–五 08:00–18:30</em></a>
+    <a href="tel:+8000050119"><b>新安東京海上 產險</b><span>0800-050-119</span><em>旅平險理賠｜24 小時</em></a>
+    <a href="tel:+3545885522"><b>Hreyfill 計程車（冰島）</b><span>+354 588 5522</span><em>11/17 藍湖→KEF｜hreyfill@hreyfill.is</em></a>
+    <a href="tel:+3545395181"><b>ASKA Holt（雷克雅維克）</b><span>+354 539 5181</span><em>另有 +354 539 3097｜booking@greenkey.is</em></a>
+    <a href="tel:+3545990000"><b>Flybus（機場接送）</b><span>+354 599 0000</span><em>11/13 KEF→市區</em></a>
+    <a href="tel:+3544974000"><b>Destination Blue Lagoon</b><span>+354 497 4000</span><em>市區→藍湖巴士｜info@destinationbluelagoon.is</em></a>
+    <a href="tel:+441315264115"><b>Forth House（愛丁堡）</b><span>+44 131 526 4115</span><em>24 小時櫃檯｜深夜入住</em></a>
+  </div>
+</section>
+
 <section id="todo" class="wrap">
   <h2 class="h2"><span class="ic">✅</span>已確認事項</h2>
   <p class="lead">四項全部確認完畢 —— 交通與住宿再沒有懸而未決的地方，剩下的就是照時程去訂。</p>
@@ -615,6 +714,11 @@ footer{
       <p style="margin-top:7px">📍 6 Broughton Street Lane, Edinburgh EH1 3LY　☎️ +44 131 526 4115<br>唯一要做的事：<b>訂房時或行前先告知 11/17 約 23:50 抵達</b>，讓櫃檯有紀錄。</p></div></div>
     <div class="ti done"><span class="k">✅</span><div><b>11/13 出發機場已定案：LGW 格域 14:25</b>
       <p>住處（63 Chalton Street）步行 8 分到 <b>St Pancras</b>，Thameslink 直達 LGW 44–50 分、一小時 6–8 班。11:30 出發即從容。約 17:40 落地 KEF 後<b>直接搭 Flybus 進市區</b>（約 19:05 抵達）。</p></div></div>
+    <div class="ti done"><span class="k">🎫</span><div><b>AA 三日團已訂 —— 拿到官方 10% 折扣</b>
+      <p><b>116,991 ISK／人</b>（原價 129,990，省 12,999）。11/14 09:00 出發、11/16 16:00–19:00 之間回市區。含 2 晚住宿（Adventure Hotel Geirland，同一間）、第 2、3 天早餐、瓦特納冰川天然冰洞與冰川健行、認證冰川導遊與安全裝備。<b>付款選 ISK、拒絕台幣計價（DCC）。</b></p></div></div>
+    <div class="ti done"><span class="k">💺</span><div><b>機票已定：去程經濟 ＋ 回程豪經</b>
+      <p>一張<b>可升級</b>（65,094）、一張<b>不可升級</b>（60,972）—— 因為華航哩程 <b>36,297</b> 只夠一人升等（豪經標準 A 升商務需 <b>35,000</b> 哩）。</p>
+      <p style="margin-top:7px">⚠️ 升等要有艙位，<b>開票後立刻申請</b>；沒有的話出發前 1–2 週再試（航空公司常在那時釋出）。四家銀行點數<b>要全部轉才夠</b>，轉點需 2–4 週。</p></div></div>
     <div class="ti done"><span class="k">♨️</span><div><b>藍湖已定案：改到 11/17 白天</b>
       <p>原訂 11/13 抵達日傍晚，但 <b>KEF→藍湖最後一班巴士是 16:30</b>（17:40 落地趕不上，得叫計程車），且傍晚時段門票貴 1,500 ISK。改到 <b>11/17 13:00 入場</b>：藍湖在去機場的路上、門票最低價、5 小時效期還泡得到天黑。</p></div></div>
     <div class="ti done"><span class="k">✅</span><div><b>11/17 KEF → 愛丁堡 20:25 已確認有飛</b>
@@ -627,7 +731,7 @@ footer{
 
 <footer class="wrap">
   <p>2026 英倫與冰島 12 天大滿貫 · 第五版（倫敦分段與冰島極度放鬆版）<br>
-  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-26 更新：<b>藍湖改至 11/17 白天</b>、11/13 改由 St Pancras 搭 Thameslink、AA 3 日團已訂（含 10% 折扣）、ASKA Holt 自助入住與 ALVA Hotel 上車點確認</p>
+  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-26 更新：<b>藍湖改至 11/17 白天</b>、新增<b>取消期限總表／備援方案／聯絡電話</b>三個區塊、住宿分佈補上實際地址、AA 3 日團已訂（含 10% 折扣）、機票配置定案</p>
 </footer>
 
 <button id="top" type="button" aria-label="回到頂端">↑</button>
