@@ -39,10 +39,7 @@ body{
 a{color:var(--accent);text-decoration:none}
 
 /* ===== 頂部列 ===== */
-.topbar{
-  position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--border)
-}
+.topbar{border-bottom:1px solid var(--border)}
 .topbar-in{display:flex;align-items:center;gap:12px;height:54px}
 .tb-dates{
   margin-left:auto;font-size:12.5px;color:var(--dim);white-space:nowrap;
@@ -57,10 +54,10 @@ a{color:var(--accent);text-decoration:none}
 /* ===== 標籤 ===== */
 .tabs{
   display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
-  position:sticky;top:54px;z-index:50;
-  background:color-mix(in srgb,var(--bg) 94%,transparent);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:55;
+  background:var(--bg);
   border-bottom:1px solid var(--border);
+  box-shadow:0 6px 14px -10px rgba(0,0,0,.5);
   margin:0 calc(-1 * clamp(16px,4vw,32px));
   padding:9px clamp(16px,4vw,32px)
 }
