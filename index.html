@@ -52,13 +52,15 @@ a{color:var(--accent);text-decoration:none}
 .layout{display:block}
 
 /* ===== 標籤 ===== */
-.tabs{
-  display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;
+/* 外層：滿版背景與底線，貼齊視窗兩側 */
+.tabbar{
   position:sticky;top:0;z-index:55;
   background:var(--bg);
-  border-bottom:1px solid var(--border);
-  margin:0 calc(-1 * clamp(16px,4vw,32px));
-  padding:0 clamp(16px,4vw,32px)
+  border-bottom:1px solid var(--border)
+}
+/* 內層：與內容同寬同對齊 */
+.tabs{
+  display:flex;gap:2px;overflow-x:auto;scrollbar-width:none
 }
 .tabs::-webkit-scrollbar{display:none}
 @media(min-width:900px){.tabs{overflow:visible}}
@@ -364,8 +366,8 @@ footer{
   </div>
 </div>
 
-<div class="wrap layout">
-  <nav class="tabs" id="tabs" aria-label="區塊導覽">
+<div class="tabbar">
+  <nav class="tabs wrap" id="tabs" aria-label="區塊導覽">
     <button class="tab" type="button" data-p="core">核心</button>
     <button class="tab" type="button" data-p="days">每日行程</button>
     <button class="tab" type="button" data-p="trans">大交通</button>
@@ -377,7 +379,9 @@ footer{
     <button class="tab" type="button" data-p="tel">聯絡電話</button>
     <button class="tab" type="button" data-p="todo">已確認</button>
   </nav>
+</div>
 
+<div class="wrap layout">
 <div class="panels" id="panels">
 <section id="core" class="panel">
 <header class="hero">
