@@ -61,10 +61,7 @@ a{color:var(--accent);text-decoration:none}
   padding:0 clamp(16px,4vw,32px)
 }
 .tabs::-webkit-scrollbar{display:none}
-/* 寬螢幕：改為換行排列，一次看到全部標籤、不必橫向滑 */
-@media(min-width:820px){
-  .tabs{flex-wrap:wrap;overflow:visible;row-gap:6px}
-}
+@media(min-width:900px){.tabs{overflow:visible}}
 .tab{
   flex:0 0 auto;padding:14px 13px 12px;border:0;background:none;
   font-size:14.5px;line-height:1.4;color:var(--dim);
