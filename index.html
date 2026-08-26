@@ -38,7 +38,59 @@ body{
 .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
 a{color:var(--accent);text-decoration:none}
 
-/* ===== 導覽列 ===== */
+/* ===== 頂部列 ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:color-mix(in srgb,var(--bg) 84%,transparent);border-bottom:1px solid var(--border)
+}
+.topbar-in{display:flex;align-items:center;gap:12px;height:54px}
+.tb-dates{
+  margin-left:auto;font-size:12.5px;color:var(--dim);white-space:nowrap;
+  font-variant-numeric:tabular-nums
+}
+.tb-dates b{color:var(--accent2)}
+@media(max-width:540px){.tb-dates{display:none}}
+
+/* ===== 版面：手機單欄／桌機側邊欄 ===== */
+.layout{display:block}
+@media(min-width:940px){
+  .layout{display:grid;grid-template-columns:186px 1fr;gap:34px;align-items:start;padding-top:22px}
+}
+
+/* ===== 標籤 ===== */
+.tabs{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;
+  position:sticky;top:54px;z-index:50;
+  background:color-mix(in srgb,var(--bg) 94%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  margin:0 calc(-1 * clamp(16px,4vw,32px));
+  padding:9px clamp(16px,4vw,32px)
+}
+.tabs::-webkit-scrollbar{display:none}
+@media(min-width:940px){
+  .tabs{
+    flex-direction:column;overflow:visible;top:78px;gap:3px;
+    border-bottom:none;background:transparent;backdrop-filter:none;margin:0;padding:0
+  }
+  .tab{width:100%;white-space:normal}
+}
+.tab{
+  flex:0 0 auto;padding:9px 14px;border-radius:11px;font-size:13.5px;line-height:1.4;
+  color:var(--muted);background:transparent;border:1px solid transparent;
+  cursor:pointer;font-family:inherit;white-space:nowrap;transition:.18s;text-align:left
+}
+.tab:hover{color:var(--text);background:var(--card)}
+.tab.on{color:var(--text);background:var(--card);border-color:var(--border-strong);font-weight:600}
+.tab .ti{margin-right:6px}
+
+/* ===== 面板 ===== */
+.panel{display:none}
+.panel.on{display:block;animation:fadein .28s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.panel.on{animation:none}}
+
+/* ===== 舊導覽列樣式（保留）===== */
 .nav{
   position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--border);
@@ -61,7 +113,7 @@ a{color:var(--accent);text-decoration:none}
 #themeBtn:hover{border-color:var(--border-strong);transform:translateY(-1px)}
 
 /* ===== Hero ===== */
-.hero{padding:clamp(44px,9vw,92px) 0 clamp(32px,6vw,56px)}
+.hero{padding:clamp(18px,3.5vw,32px) 0 clamp(22px,4vw,36px)}
 .ver{
   display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;
   padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);
@@ -79,7 +131,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--ac
 .stat span{font-size:12px;color:var(--dim)}
 
 /* ===== 區塊通用 ===== */
-section{padding:clamp(34px,6vw,58px) 0;scroll-margin-top:70px}
+section{padding:clamp(20px,3.5vw,30px) 0}
 .h2{display:flex;align-items:center;gap:11px;margin:0 0 6px;font-size:clamp(20px,4vw,29px);letter-spacing:-.01em}
 .h2 .ic{font-size:1.05em}
 .lead{color:var(--muted);margin:0 0 24px;font-size:14.5px}
@@ -251,6 +303,18 @@ td{color:var(--muted)}
   background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
 .tag-k{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;
   background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2)}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.pk-col{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:15px 17px}
+.pk-col.must{border-left:3px solid var(--hot)}
+.pk-col.rec{border-left:3px solid var(--warn)}
+.pk-col.opt{border-left:3px solid var(--accent)}
+.pk-col.no{border-left:3px solid var(--dim);opacity:.75}
+.pk-col h4{margin:0 0 10px;font-size:14px;letter-spacing:.02em}
+.pk-col ul{margin:0;padding-left:18px}
+.pk-col li{font-size:13.2px;color:var(--muted);margin:5px 0;line-height:1.6}
+.pk-col li b{color:var(--text)}
+.wx td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.wx .ice{background:color-mix(in srgb,var(--accent2) 8%,transparent)}
 .tel{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:11px}
 .tel a{
   display:block;background:var(--card);border:1px solid var(--border);border-radius:14px;
@@ -295,7 +359,9 @@ footer{
   .day{opacity:1;transform:none}
 }
 @media print{
-  .nav,#top,.ctrl,#themeBtn{display:none}
+  .topbar,.tabs,#top,.ctrl,#themeBtn{display:none}
+  .panel{display:block!important}
+  .layout{display:block}
   body{background:#fff;color:#000}
   .dbody{max-height:none!important}
 }
@@ -303,25 +369,31 @@ footer{
 </head>
 <body>
 
-<nav class="nav">
-  <div class="wrap nav-in">
+<div class="topbar">
+  <div class="wrap topbar-in">
     <div class="brand">🏔️ 英倫 × 冰島<small>2026 / 第五版</small></div>
-    <div class="nav-links">
-      <a href="#core">核心</a>
-      <a href="#trans">大交通</a>
-      <a href="#days">每日行程</a>
-      <a href="#stay">住宿</a>
-      <a href="#prep">行前必辦</a>
-      <a href="#deadline">取消期限</a>
-      <a href="#plan-b">備援方案</a>
-      <a href="#tel">聯絡電話</a>
-      <a href="#todo">已確認</a>
-    </div>
+    <div class="tb-dates"><b>11/11</b> – <b>11/22</b>　12 天</div>
     <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
   </div>
-</nav>
+</div>
 
-<header class="hero wrap">
+<div class="wrap layout">
+  <nav class="tabs" id="tabs" aria-label="區塊導覽">
+    <button class="tab" type="button" data-p="core"><span class="ti">💡</span>核心</button>
+    <button class="tab" type="button" data-p="days"><span class="ti">📅</span>每日行程</button>
+    <button class="tab" type="button" data-p="trans"><span class="ti">✈️</span>大交通</button>
+    <button class="tab" type="button" data-p="stay"><span class="ti">🏨</span>住宿</button>
+    <button class="tab" type="button" data-p="prep"><span class="ti">🚨</span>行前必辦</button>
+    <button class="tab" type="button" data-p="deadline"><span class="ti">🗓️</span>取消期限</button>
+    <button class="tab" type="button" data-p="plan-b"><span class="ti">🛟</span>備援方案</button>
+    <button class="tab" type="button" data-p="pack"><span class="ti">🎒</span>天氣與打包</button>
+    <button class="tab" type="button" data-p="tel"><span class="ti">📞</span>聯絡電話</button>
+    <button class="tab" type="button" data-p="todo"><span class="ti">✅</span>已確認</button>
+  </nav>
+
+<div class="panels" id="panels">
+<section id="core" class="panel">
+<header class="hero">
   <span class="ver">◆ 第五版　倫敦分段 × 冰島極度放鬆</span>
   <h1>2026 <em>英倫與冰島</em><br>12 天大滿貫</h1>
   <p class="sub"><b>11/11（三）～ 11/22（日）</b>。配合華航早班機（CI81 09:15→16:55，已確認）與愛丁堡晚班機量身打造：倫敦切兩半，去程先休整調時差，再以絕佳狀態迎戰冰島。</p>
@@ -332,9 +404,6 @@ footer{
     <div class="stat"><b>5</b><span>段核心大交通</span></div>
   </div>
 </header>
-
-<main>
-<section id="core" class="wrap">
   <h2 class="h2"><span class="ic">💡</span>戰略核心</h2>
   <p class="lead">為什麼這一版把倫敦拆成前後兩段？</p>
   <div class="card core">
@@ -350,7 +419,7 @@ footer{
   </div>
 </section>
 
-<section id="trans" class="wrap">
+<section id="trans" class="panel">
   <h2 class="h2"><span class="ic">✈️</span>核心大交通</h2>
   <p class="lead">五段骨幹，動一段全盤都要重排。</p>
   <div class="legs">
@@ -397,7 +466,7 @@ footer{
   </div>
 </section>
 
-<section id="days" class="wrap">
+<section id="days" class="panel">
   <h2 class="h2"><span class="ic">📅</span>每日行程與戰術指導</h2>
   <p class="lead">點任一天展開細節。左側軸線依<b>所在城市分段</b>；圓點顏色：藍＝英國、綠＝冰島、黃＝移動轉場日。</p>
   <div class="ctrl">
@@ -578,7 +647,7 @@ footer{
   </div>
 </section>
 
-<section id="stay" class="wrap">
+<section id="stay" class="panel">
   <h2 class="h2"><span class="ic">🏨</span>住宿分佈</h2>
   <p class="lead">共 10 晚落地住宿 ＋ 1 夜紅眼航班（11/21 機上）。<b>倫敦後段 2 晚尚未訂。</b></p>
   <div class="beds">
@@ -590,7 +659,7 @@ footer{
   </div>
 </section>
 
-<section id="prep" class="wrap">
+<section id="prep" class="panel">
   <h2 class="h2"><span class="ic">🚨</span>行前必辦與訂票時程</h2>
   <p class="lead">整體檢查後補上的缺口。最上面那項沒辦，<b>登機門直接被攔下來</b>。</p>
   <div class="prep">
@@ -641,7 +710,7 @@ footer{
   </div>
 </section>
 
-<section id="deadline" class="wrap">
+<section id="deadline" class="panel">
   <h2 class="h2"><span class="ic">🗓️</span>取消期限總表</h2>
   <p class="lead">依時間排序。過了期限就是<b>真的付出去了</b> —— 建議每個都設手機提醒。</p>
   <div class="tw">
@@ -668,7 +737,7 @@ footer{
   </div>
 </section>
 
-<section id="plan-b" class="wrap">
+<section id="plan-b" class="panel">
   <h2 class="h2"><span class="ic">🛟</span>備援方案</h2>
   <p class="lead">五段大交通裡，<b>只有 11/17 錯過無法當天補救</b>。其他最壞情況都只是多花錢。</p>
   <div class="prep">
@@ -689,7 +758,90 @@ footer{
   </div>
 </section>
 
-<section id="tel" class="wrap">
+<section id="pack" class="panel">
+  <h2 class="h2"><span class="ic">🎒</span>天氣、日照與打包</h2>
+  <p class="lead">冰島日照只有 6 小時、英國 15 天有雨 —— 這兩件事決定了要帶什麼。</p>
+
+  <div class="tw">
+    <table class="wx">
+      <thead><tr><th>日期</th><th>地點</th><th>日照（約）</th><th>氣溫</th><th>重點</th></tr></thead>
+      <tbody>
+        <tr><td><b>11/11 三</b></td><td>倫敦</td><td>07:12–16:19</td><td>10°／4°</td><td>16:55 落地時已天黑</td></tr>
+        <tr><td><b>11/12 四</b></td><td>倫敦</td><td>07:14–16:17</td><td>10°／4°</td><td>觀光日，可能有雨</td></tr>
+        <tr><td><b>11/13 五</b></td><td>倫敦→冰島</td><td>07:15–16:16</td><td>10° → 2°</td><td><b>溫差 8 度</b>，機上換裝</td></tr>
+        <tr class="ice"><td><b>11/14 六</b></td><td>冰島南岸</td><td>09:45–16:25（<b>6.5h</b>）</td><td>2°／-2°</td><td>黃金圈，戶外整天</td></tr>
+        <tr class="ice"><td><b>11/15 日</b></td><td>冰島南岸</td><td>09:50–16:20</td><td>2°／-2°</td><td><b>冰川健行＋冰洞</b>，最冷</td></tr>
+        <tr class="ice"><td><b>11/16 一</b></td><td>冰島南岸→市區</td><td>09:55–16:15</td><td>2°／-2°</td><td>黑沙灘強風</td></tr>
+        <tr class="ice"><td><b>11/17 二</b></td><td>冰島→愛丁堡</td><td>10:00–16:10（<b>6h</b>）</td><td>2° → 8°</td><td><b>藍湖泳衣</b>＋轉場</td></tr>
+        <tr><td><b>11/18 三</b></td><td>愛丁堡</td><td>07:40–16:10</td><td>8°／3°</td><td>舊城步行、聖誕市集</td></tr>
+        <tr><td><b>11/19 四</b></td><td>愛丁堡→倫敦</td><td>07:42–16:08</td><td>8° → 10°</td><td>火車 4.5 小時</td></tr>
+        <tr><td><b>11/20 五</b></td><td>倫敦</td><td>07:28–16:05</td><td>10°／4°</td><td>市場＋音樂劇</td></tr>
+        <tr><td><b>11/21 六</b></td><td>倫敦→台北</td><td>07:30–16:04</td><td>10°／4°</td><td>21:15 夜航</td></tr>
+        <tr><td><b>11/22 日</b></td><td>台北</td><td>—</td><td>約 25°</td><td><b>溫差 20 度以上</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi now"><span class="k">🌧️</span><div><b>下雨：英國比冰島更該擔心<span class="lv">帶傘</span></b>
+      <p>倫敦 11 月<b>月均 15 天有雨</b>（59mm）、愛丁堡每天 <b>39% 機率</b>。你在英國待 7 天 —— <b>幾乎一定會遇到雨</b>。所幸多是綿綿細雨，防水外套＋摺疊傘就夠。</p></div></div>
+    <div class="pi soon"><span class="k">❄️</span><div><b>下雪：英國幾乎不會，冰島約 60% 機率<span class="lv">防水不只防潑水</span></b>
+      <p>倫敦 11 月下雪<b>約每兩年一次</b>且不積雪；愛丁堡機率也很低。但<b>雷克雅維克 11 月約有 5 天下雪</b>（月累積 8.7cm）—— 你在冰島 5 天，<b>遇到至少一天下雪的機率約 60%</b>，南岸與冰川一帶更高。</p></div></div>
+    <div class="pi soon"><span class="k">🔅</span><div><b>冰島日照只有 6 小時，比英國少 3 小時<span class="lv">頭燈必帶</span></b>
+      <p><b>10:00 才天亮、16:15 就天黑</b> —— AA 團三天實質只有 6 小時能拍照。11/14 早上 08:45 走去 ALVA Hotel 搭車時<b>天還是全黑的</b>。</p></div></div>
+  </div>
+
+  <h2 class="h2" style="margin-top:26px"><span class="ic">🧳</span>打包清單</h2>
+  <div class="pk">
+    <div class="pk-col must"><h4>🔴 必備（冰島關鍵）</h4>
+      <ul>
+        <li><b>防水登山靴</b>（腳踝以上、硬底）—— 冰川健行<b>強制要求</b>，運動鞋不行</li>
+        <li><b>厚羊毛襪 × 3</b></li>
+        <li><b>防水外套</b>（Gore-Tex 級）—— 12 天都在穿</li>
+        <li><b>防水褲或雨褲</b> —— 塞里雅蘭瀑布可走到瀑布後方，一定會濕</li>
+        <li><b>保暖中層</b>（刷毛／輕羽絨）</li>
+        <li><b>發熱衣褲</b>（羊毛或機能，長袖長褲）</li>
+        <li><b>毛帽、圍脖、防水手套</b> —— 風寒是主要威脅</li>
+        <li><b>頭燈或手電筒</b> —— 10:00 才天亮</li>
+        <li><b>泳衣 ＋ 快乾毛巾</b>（11/17 藍湖）</li>
+      </ul></div>
+    <div class="pk-col rec"><h4>🟠 強烈建議</h4>
+      <ul>
+        <li><b>行動電源（大容量）</b> —— 低溫會讓手機電量急速下降，拍極光、看導航都靠它</li>
+        <li><b>兩種插座轉接頭</b> —— 英國 Type G ／ 冰島 Type F</li>
+        <li>摺疊傘（倫敦 15 天有雨）</li>
+        <li>好走的防水鞋（英國段步行量大）</li>
+        <li>保溫瓶</li>
+        <li>常用藥品（感冒、腸胃、止痛）</li>
+      </ul></div>
+    <div class="pk-col opt"><h4>🟡 可選</h4>
+      <ul>
+        <li>太陽眼鏡（冰川反光＋低角度陽光）</li>
+        <li>防水手機袋</li>
+        <li>暖暖包</li>
+        <li>眼罩耳塞（11/21 夜航）</li>
+        <li>防滑鞋套（台灣買約 300–800 元）</li>
+      </ul></div>
+    <div class="pk-col no"><h4>❌ 不用帶</h4>
+      <ul>
+        <li><b>冰爪 crampons</b> —— AA 提供</li>
+        <li><b>安全帽</b> —— AA 提供</li>
+        <li>冰川安全裝備 —— AA 提供</li>
+        <li>厚重雪衣 —— 洋蔥式比單件厚衣好</li>
+      </ul></div>
+  </div>
+
+  <div class="prep" style="margin-top:16px">
+    <div class="pi later"><span class="k">🧅</span><div><b>三層穿搭系統<span class="lv">外層兩地共用</span></b>
+      <p><b>內層</b>排汗保暖（冰島用羊毛／發熱衣褲）→ <b>中層</b>保暖（刷毛或輕羽絨）→ <b>外層</b>防風防水（Gore-Tex）。<b>外層在冰島和英國都是同一件</b> —— 這就是值得投資一件好外套的理由。</p></div></div>
+    <div class="pi later"><span class="k">🌡️</span><div><b>回程溫差 20 度以上<span class="lv">容易忘</span></b>
+      <p>11/21 起飛時倫敦 4–10°C，11/22 落地台北約 25°C。<b>把一件薄長袖放在隨身包</b>，下機前換掉厚衣服 —— 不然出桃園機場會熱到受不了。</p></div></div>
+    <div class="pi later"><span class="k">📏</span><div><b>行李三邊之和不得超過 158cm<span class="lv">出發前量一次</span></b>
+      <p>AA 團規定每人 <b>1 個 20kg 行李箱（三邊之和 ≤158cm）＋ 1 個小背包</b>。典型 28 吋約 157cm，<b>剛好在邊緣</b> —— 拿捲尺量一次（含輪子拉桿、不擴充）。超標要付 2,500 ISK 寄放 AA 總部，而<b>寄放的行李三天拿不到</b>。</p></div></div>
+  </div>
+</section>
+
+<section id="tel" class="panel">
   <h2 class="h2"><span class="ic">📞</span>聯絡電話</h2>
   <p class="lead">手機上可直接點擊撥號。出發前建議截圖存一份離線。</p>
   <div class="tel">
@@ -703,7 +855,7 @@ footer{
   </div>
 </section>
 
-<section id="todo" class="wrap">
+<section id="todo" class="panel">
   <h2 class="h2"><span class="ic">✅</span>已確認事項</h2>
   <p class="lead">四項全部確認完畢 —— 交通與住宿再沒有懸而未決的地方，剩下的就是照時程去訂。</p>
   <div class="todo">
@@ -727,11 +879,12 @@ footer{
       <p>LNER 車票（早鳥價差極大，約提前 12 週開賣）、西區音樂劇座位、<b>藍湖 11/17 時段</b>。（AA 3 日團已訂，含 10% 折扣）</p></div></div>
   </div>
 </section>
-</main>
+</div>
+</div>
 
 <footer class="wrap">
   <p>2026 英倫與冰島 12 天大滿貫 · 第五版（倫敦分段與冰島極度放鬆版）<br>
-  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-26 更新：<b>藍湖改至 11/17 白天</b>、新增<b>取消期限總表／備援方案／聯絡電話</b>三個區塊、住宿分佈補上實際地址、AA 3 日團已訂（含 10% 折扣）、機票配置定案</p>
+  資料來源：travel_plan_v5.md ｜ 星期已對照 2026 年曆驗證<br>2026-08-26 更新：<b>藍湖改至 11/17 白天</b>、改為<b>標籤式版面</b>（手機橫向／桌機側邊欄）、新增<b>天氣與打包</b>區塊、住宿分佈補上實際地址、AA 3 日團已訂（含 10% 折扣）、機票配置定案</p>
 </footer>
 
 <button id="top" type="button" aria-label="回到頂端">↑</button>
@@ -768,7 +921,14 @@ footer{
     if(!b || !h) return;
     if(open) d.classList.add('open'); else d.classList.remove('open');
     h.setAttribute('aria-expanded', open?'true':'false');
-    b.style.maxHeight = open ? (b.scrollHeight+24)+'px' : '';
+    /* 面板隱藏時 scrollHeight 為 0，先不設高度，等面板顯示後再算 */
+    if(!open){ b.style.maxHeight=''; return; }
+    var sh=b.scrollHeight;
+    b.style.maxHeight = sh>0 ? (sh+24)+'px' : '';
+  }
+  /* 面板由隱藏轉顯示後，重算已展開項的高度 */
+  function refreshHeights(){
+    days.forEach(function(d){ if(d.classList.contains('open')) setOpen(d,true); });
   }
   days.forEach(function(d){
     var h=d.querySelector('.dhead');
@@ -779,7 +939,7 @@ footer{
   var oa=document.getElementById('openAll'), ca=document.getElementById('closeAll');
   if(oa) oa.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,true); }); });
   if(ca) ca.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,false); }); });
-  /* 桌機預設展開第一天 */
+  /* 桌機預設展開第一天（高度會在面板顯示時重算） */
   if(window.innerWidth>760 && days[0]) setOpen(days[0],true);
   /* 轉向或改變視窗寬度時重算已展開項的高度 */
   var rt;
@@ -800,19 +960,63 @@ footer{
     days.forEach(function(d){ io.observe(d); });
   }
 
-  /* ===== 導覽高亮 ＋ 回到頂端 ===== */
-  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
-  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  /* ===== 標籤切換 ===== */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var VALID=tabs.map(function(t){ return t.getAttribute('data-p'); });
+
+  function show(id,opts){
+    if(VALID.indexOf(id)<0) id=VALID[0];
+    panels.forEach(function(pn){ pn.classList.toggle('on', pn.id===id); });
+    tabs.forEach(function(t){
+      var on=t.getAttribute('data-p')===id;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-current', on?'true':'false');
+      /* 手機橫向標籤列：把選中的捲到可見 */
+      if(on && t.scrollIntoView){ try{ t.scrollIntoView({block:'nearest',inline:'center'}); }catch(e){} }
+    });
+    try{ localStorage.setItem('eu-tab',id); }catch(e){}
+    if(!opts || !opts.silent){
+      if(history.replaceState) history.replaceState(null,'','#'+id);
+      else location.hash=id;
+    }
+    /* 面板剛顯示，重算手風琴高度；並讓進場動畫直接完成 */
+    refreshHeights();
+    days.forEach(function(d){ d.classList.add('in'); });
+    window.scrollTo({top:0,behavior:(opts&&opts.jump)?'auto':'smooth'});
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){ show(t.getAttribute('data-p')); });
+  });
+
+  /* 初始頁籤：網址 hash > 上次瀏覽 > 第一個 */
+  var init=(location.hash||'').replace('#','');
+  if(VALID.indexOf(init)<0){
+    var saved=null;
+    try{ saved=localStorage.getItem('eu-tab'); }catch(e){}
+    init=(VALID.indexOf(saved)>=0)?saved:VALID[0];
+  }
+  show(init,{silent:true,jump:true});
+
+  /* 支援上一頁／下一頁與外部錨點連結 */
+  window.addEventListener('hashchange',function(){
+    var h=(location.hash||'').replace('#','');
+    if(VALID.indexOf(h)>=0) show(h,{silent:true});
+  });
+
+  /* ===== 回到頂端 ===== */
   var top=document.getElementById('top');
   if(top) top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-  function onScroll(){
-    var y=window.scrollY+90, cur=-1;
-    secs.forEach(function(sc,i){ if(sc && sc.offsetTop<=y) cur=i; });
-    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
-    if(top) top.classList.toggle('show', window.scrollY>500);
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
+  window.addEventListener('scroll',function(){
+    if(top) top.classList.toggle('show', window.scrollY>420);
+  },{passive:true});
+
+  /* 視窗改變寬度時重算高度（側邊欄↔橫向標籤切換） */
+  var rt2;
+  window.addEventListener('resize',function(){
+    clearTimeout(rt2); rt2=setTimeout(refreshHeights,150);
+  });
 })();
 </script>
 </body>
